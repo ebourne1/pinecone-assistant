@@ -1,4 +1,30 @@
+'use client';
+
+import { useState } from 'react';
+import Home from './home';
+
 export default function Page() {
+  const [authorized, setAuthorized] = useState(false);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const showAssistantFiles = false;
+  const showCitations = true;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password.toLowerCase().trim() === 'the board') {
+      setAuthorized(true);
+      setError('');
+    } else {
+      setError('Incorrect password.');
+    }
+  };
+
+  if (authorized) {
+    return <Home initialShowAssistantFiles={showAssistantFiles} showCitations={showCitations} />;
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gray-50 text-center">
       <div className="max-w-2xl mx-auto space-y-6">
@@ -20,6 +46,29 @@ export default function Page() {
             elliot@bourne.law
           </a>
         </p>
+
+        <form onSubmit={handleSubmit} className="mt-8 space-y-3">
+          <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+            Enter password for legacy access
+          </label>
+          <div className="flex justify-center gap-2">
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
+              placeholder="Password"
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              Enter
+            </button>
+          </div>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+        </form>
       </div>
     </main>
   );
