@@ -1,13 +1,26 @@
-import  Home  from './home'
-// This app allows you to optionally disable sharing the Assistant's files and providing citations, via the 
-// environment variables SHOW_ASSISTANT_FILES and SHOW_CITATIONS.
-
-// This page.tsx is a server component, which allows us to read the values of the environment variables and pass them 
-// to the Home component, which is a client component (intended to run on the client and use Browser API's). 
-// The client component is responsible for rendering the UI, and needs to know the values of the environment variables
 export default function Page() {
-  const showAssistantFiles = process.env.SHOW_ASSISTANT_FILES === 'true'
-  const showCitations = process.env.SHOW_CITATIONS !== 'false' // Defaults to true unless explicitly set to 'false'
-  
-  return <Home initialShowAssistantFiles={showAssistantFiles} showCitations={showCitations} />
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-gray-50 text-center">
+      <div className="max-w-2xl mx-auto space-y-6">
+        <h1 className="text-3xl font-bold text-indigo-900">
+          Thank you for using the GLF workers comp AI bot.
+        </h1>
+        <p className="text-lg text-gray-700">
+          This program was made available to attendees of the 2025 GLF seminar.
+        </p>
+        <p className="text-lg text-gray-700">
+          A new and improved version 2 will be made available to attendees of the 2026 GLF seminar (April 30th).
+        </p>
+        <p className="text-lg text-gray-700">
+          For inquiries about signing up for the seminar, and renewing access to this tool, please email{' '}
+          <a
+            href="mailto:jennifer.jarvis@jext.us"
+            className="text-indigo-600 hover:underline"
+          >
+            elliot@bourne.law
+          </a>
+        </p>
+      </div>
+    </main>
+  );
 }
