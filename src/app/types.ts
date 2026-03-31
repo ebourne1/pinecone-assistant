@@ -23,3 +23,11 @@ export interface ChatMessage {
   content: string;
   citations?: Citation[];
 }
+
+export interface ChatThread {
+  id: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  messages: ChatMessage[];
+}
