@@ -360,7 +360,7 @@ export default function ChatWindow({ showCitations, showFiles }: ChatWindowProps
       <div className="w-full max-w-6xl xl:max-w-7xl">
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 pl-12">
-            SBWC Assistant: {assistantName} <span className="text-green-500">&#9679;</span>
+            Georgia Workers' Comp Chat Bot <span className="text-green-500">&#9679;</span>
           </h1>
           <button
             onClick={handleNewThread}

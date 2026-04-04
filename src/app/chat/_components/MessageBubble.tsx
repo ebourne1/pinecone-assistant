@@ -64,7 +64,7 @@ export default function MessageBubble({ message, citations, showCitations }: Mes
           {isUser ? (
             <span className="text-2xl" aria-label="User">&#128100;</span>
           ) : (
-            <span className="text-2xl" aria-label="Assistant">&#129302;</span>
+            <span className="text-2xl" aria-label="Assistant">&#9878;</span>
           )}
         </div>
         <div className={`inline-block rounded-lg ${
